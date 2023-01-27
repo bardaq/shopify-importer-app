@@ -36,11 +36,19 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
 
+app.use((_req: any, res: any, next: any) => {
+  console.log(`\n\n`, _req.originalUrl, {
+    body: _req.body,
+    rawBody: _req.rawBody,
+  });
+  next();
+});
+
 app.get("/api/products/count", async (_req: any, res: any) => {
   const countData = await shopify.api.rest.Product.count({
     session: res.locals.shopify.session,
   });
-  res.status(200).send({ count: 666 });
+  res.status(200).send(countData);
 });
 
 app.get("/api/products/create", async (_req: any, res: any) => {
@@ -57,15 +65,19 @@ app.get("/api/products/create", async (_req: any, res: any) => {
   res.status(status).send({ success: status === 200, error });
 });
 
-// TODO: refactop due to https://github.com/Shopify/shopify-api-js/blob/main/docs/migrating-to-v6.md#utility-functions
-// app.post("/graphql", verifyRequest(app), async (req: any, res: any) => {
-//   try {
-//     const response = await Shopify.Utils.graphqlProxy(req, res);
-//     res.status(200).send(response.body);
-//   } catch (error) {
-//     res.status(500).send(error.message);
-//   }
-// });
+app.post("/api/graphql", async (req: any, res: any) => {
+  try {
+    const session = res.locals.shopify.session;
+    const response = await shopify.api.clients.graphqlProxy({
+      session,
+      rawBody: req.rawBody,
+    });
+
+    res.status(200).send(response.body);
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+});
 
 app.use(serveStatic(STATIC_PATH, { index: false }));
 

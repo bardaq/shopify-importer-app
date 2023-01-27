@@ -7,6 +7,7 @@ import {
   QueryProvider,
   PolarisProvider,
 } from "./components";
+import ApolloClientProvider from "./apollo/ApolloClientProvider";
 
 export default function App() {
   // Any .tsx or .jsx files in /pages will become a route
@@ -18,18 +19,21 @@ export default function App() {
       <BrowserRouter>
         <AppBridgeProvider>
           <QueryProvider>
-            <NavigationMenu
-              navigationLinks={[
-                {
-                  label: "Page name",
-                  destination: "/pagename",
-                },
-              ]}
-            />
-            <Routes pages={pages} />
+            <ApolloClientProvider>
+              <NavigationMenu
+                navigationLinks={[
+                  {
+                    label: "Page name",
+                    destination: "/pagename",
+                  },
+                ]}
+              />
+              <Routes pages={pages} />
+            </ApolloClientProvider>
           </QueryProvider>
         </AppBridgeProvider>
       </BrowserRouter>
     </PolarisProvider>
   );
 }
+
