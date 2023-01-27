@@ -49,37 +49,37 @@ export function ProductsCard() {
 
   const handlePopulate = async () => {
     setIsLoading(true);
-    // const response = await populateProduct({
-    //   variables: {
-    //     input: {
-    //       title: "randomTitle()",
-    //     },
-    //   },
-    // });
+    const response = await populateProduct({
+      variables: {
+        input: {
+          title: "УУУУУ КРРРРРАААА ЇЇЇЇ ННААААА",
+        },
+      },
+    });
 
-    // if (response.errors) {
-    //   console.log(response.errors);
-    //   setToastProps({
-    //     content: response.errors[0].message,
-    //     error: true,
-    //   });
-    //   return;
-    // }
-
-    // setToastProps({ content: "1 products created!", error: false });
-
-    const response = await fetch("/api/products/create");
-
-    if (response.ok) {
-      await refetchProductCount();
-      setToastProps({ content: "5 products created!", error: false });
-    } else {
-      setIsLoading(false);
+    if (response.errors) {
+      console.log(response.errors);
       setToastProps({
-        content: "There was an error creating products",
+        content: response.errors[0].message,
         error: true,
       });
+      return;
     }
+
+    setToastProps({ content: "1 products created!", error: false });
+
+    // const response = await fetch("/api/products/create");
+
+    // if (response.ok) {
+    //   await refetchProductCount();
+    //   setToastProps({ content: "5 products created!", error: false });
+    // } else {
+    //   setIsLoading(false);
+    //   setToastProps({
+    //     content: "There was an error creating products",
+    //     error: true,
+    //   });
+    // }
   };
 
   return (

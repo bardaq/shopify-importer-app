@@ -13,6 +13,8 @@ function useAuthenticatedFetch() {
   const app = useAppBridge();
   const fetchFunction = authenticatedFetch(app);
 
+  return fetchFunction;
+
   return async (uri, options) => {
     const response = await fetchFunction(uri, options);
     checkHeadersForReauthorization(response.headers, app);

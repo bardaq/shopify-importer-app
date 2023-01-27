@@ -34,15 +34,7 @@ app.post(
 // All endpoints after this point will require an active session
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
-app.use(express.json());
-
-app.use((_req: any, res: any, next: any) => {
-  console.log(`\n\n`, _req.originalUrl, {
-    body: _req.body,
-    rawBody: _req.rawBody,
-  });
-  next();
-});
+app.use(express.json({ type: "*/*" }));
 
 app.get("/api/products/count", async (_req: any, res: any) => {
   const countData = await shopify.api.rest.Product.count({
@@ -70,7 +62,7 @@ app.post("/api/graphql", async (req: any, res: any) => {
     const session = res.locals.shopify.session;
     const response = await shopify.api.clients.graphqlProxy({
       session,
-      rawBody: req.rawBody,
+      rawBody: req.body,
     });
 
     res.status(200).send(response.body);
