@@ -1,10 +1,10 @@
 {
-  "name": "shopify-app-template-node",
+  "name": "shopify-importer-app",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
     "debug": "node --inspect-brk index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js --ignore ./frontend",
+    "dev": "cross-env NODE_ENV=development nodemon --watch './**/*.ts' --exec 'ts-node-esm' index.ts --ignore ./frontend",
     "serve": "cross-env NODE_ENV=production node index.js"
   },
   "type": "module",
@@ -24,3 +24,4 @@
     "pretty-quick": "^3.1.3"
   }
 }
+
