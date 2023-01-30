@@ -8,7 +8,7 @@ import {
 } from "@shopify/polaris";
 import { Toast } from "@shopify/app-bridge-react";
 import { useAppQuery, useAuthenticatedFetch } from "../hooks";
-import { oxidomPaintFirst, oxidomPaintSecond } from "../assets";
+import { testProductImage, testCategoryImage } from "../assets";
 import { useMutation, gql } from "@apollo/client";
 
 const PRODUCTS_QUERY = gql`
@@ -85,28 +85,58 @@ export function ProductsCard() {
           descriptionHtml:
             '<p style="text-align: justify;">Натуральное <strong>льняное масло с добавлением пчелиного воска&nbsp;Oxidom-100 </strong><b>(ОксиДом-</b><b>100)</b> - готовая пропитка для дерева наружного и внутреннего применения и изделий из древесины, содержит незначительное количество экстракта хвойных пород для поддержания в жидком состоянии продукта. Oxidom-100 (ОксиДом-100) отлично подходит для декорирования и защиты всех пород древесины, хорошо впитывается и имеет антисептические свойства, что способствует защите древесины от биопоражения. В смеси льняного масла с воском получаем дополнительный слой защиты дерева, который образует пленка на поверхности после высыхания, а так изделие можно натирать до блеска.</p>',
 
-          options: ["Packaging", "Size", "Shine"],
-          metafields: [
-            {
-              namespace: "keywords",
-              type: "string",
-              key: "meta_keywords",
-              value:
-                "оксидом 100, oxidom 100, льняное масло для дерева, льняное масло, масло пчелиного воска, масло льна",
-            },
-          ],
+          // https://shopify.dev/api/admin-graphql/2023-04/mutations/productCreate#field-productinput-seo
+          seo: {
+            title: "seo title",
+            description: "seo description",
+          },
+          options: ["Колір", "Фасування", "Блиск"],
           variants: [
             {
-              price: "257",
-              options: ["no color", "0.6L", "matte"],
+              price: "348",
+              options: ["прозорий", "0.95 л.", "напівматовий"],
             },
             {
-              price: "680",
-              options: ["no color", "1L", "matte"],
+              price: "968",
+              options: ["прозорий", "2.4 л.", "напівматовий"],
+            },
+          ],
+          metafields: [
+            {
+              namespace: "productProperties",
+              type: "single_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "колір",
+              value: "Білий, після висихання прозорий",
             },
             {
-              price: "1680",
-              options: ["no color", "10L", "matte"],
+              namespace: "productProperties",
+              type: "single_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "код товару (артикул)",
+              value: "31888",
+            },
+            {
+              namespace: "productProperties",
+              type: "single_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "час висихання",
+              value: "2-3 години",
+            },
+            {
+              namespace: "productProperties",
+              type: "single_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "висихання від пилу",
+              value: "12 годин",
+            },
+            {
+              namespace: "productProperties",
+              type: "single_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "витрата",
+              value: "10-14 м²/л.",
+            },
+            {
+              namespace: "productProperties",
+              type: "multi_line_text_field", // https://shopify.dev/apps/custom-data/metafields/types
+              key: "з УФ-фільтром\nзносостійкість\nводовідштовхувальні\nзміцнюючі\nводостійкість\nантисептичні\nантигрибкові\nмиється",
+              value: "10-14 м²/л.",
             },
           ],
         },
@@ -170,3 +200,4 @@ export function ProductsCard() {
     </>
   );
 }
+
