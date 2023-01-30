@@ -67,7 +67,8 @@ app.post("/api/graphql", async (req: any, res: any) => {
 
     res.status(200).send(response.body);
   } catch (error: any) {
-    res.status(500).send(error.message);
+    console.log(JSON.stringify({ MESS: error }, null, 2));
+    res.status(500).send(error);
   }
 });
 
@@ -85,4 +86,3 @@ app.use(
 );
 
 app.listen(PORT);
-
