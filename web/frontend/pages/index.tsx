@@ -10,8 +10,6 @@ import {
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 
-import { trophyImage } from "../assets";
-
 import { ProductsCard } from "../components";
 
 export default function HomePage() {
@@ -66,13 +64,7 @@ export default function HomePage() {
                 </TextContainer>
               </Stack.Item>
               <Stack.Item>
-                <div style={{ padding: "0 20px" }}>
-                  <Image
-                    source={trophyImage}
-                    alt="Nice work on building a Shopify app"
-                    width={120}
-                  />
-                </div>
+                <div style={{ padding: "0 20px" }}></div>
               </Stack.Item>
             </Stack>
           </Card>
@@ -84,4 +76,3 @@ export default function HomePage() {
     </Page>
   );
 }
-
