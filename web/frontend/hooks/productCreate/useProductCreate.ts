@@ -1,56 +1,20 @@
-import { useState } from "react";
-import { useAppQuery } from "../../hooks";
 import { gql, useMutation } from "@apollo/client";
+import { IProduct } from "./types";
 
-export function useProductCreate(
-  setToastProps: ({
-    content,
-    error,
-  }: {
-    content: string;
-    error: boolean;
-  }) => void,
-  products: any
-) {
+export function useProductCreate() {
   const [populateProduct, { loading }] = useMutation(CREATE_PRODUCT_QUERY);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const {
-    data,
-    refetch: refetchProductCount,
-    isLoading: isLoadingCount,
-    isRefetching: isRefetchingCount,
-  } = useAppQuery({
-    url: "/api/products/count",
-    reactQueryOptions: {
-      onSuccess: () => {
-        setIsLoading(false);
+  const createProduct = async (product: IProduct) => {
+    const response = await populateProduct({
+      variables: {
+        input: product,
       },
-    },
-  });
-
-  const handlePopulate = () => {
-    setIsLoading(true);
-    products.forEach(async (product) => {
-      const response = await populateProduct({
-        variables: {
-          input: product,
-        },
-      });
-      if (response.errors) {
-        setToastProps({
-          content: response.errors[0].message,
-          error: true,
-        });
-        return response.errors;
-      }
-      return response;
     });
-
-    setToastProps({ content: "1 products created!", error: false });
+    if (response.errors) response.errors;
+    return response;
   };
 
-  return { handlePopulate, isLoadingCount, isRefetchingCount, loading, data };
+  return { createProduct, loading };
 }
 
 export const CREATE_PRODUCT_QUERY = gql`
@@ -70,7 +34,14 @@ export const CREATE_PRODUCT_QUERY = gql`
         options {
           values
         }
-        metafields(first: 1) {
+        images(first: 3) {
+          edges {
+            node {
+              src
+            }
+          }
+        }
+        metafields(first: 10) {
           edges {
             node {
               namespace
@@ -80,12 +51,15 @@ export const CREATE_PRODUCT_QUERY = gql`
             }
           }
         }
-        variants(first: 1) {
+        variants(first: 3) {
           edges {
             node {
               price
               selectedOptions {
                 value
+              }
+              image {
+                url
               }
             }
           }
