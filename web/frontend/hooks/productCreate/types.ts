@@ -12,6 +12,7 @@ export interface IProduct {
   variants: {
     price: string;
     options: string[];
+    imageSrc: string;
   }[];
   metafields: {
     namespace: string;

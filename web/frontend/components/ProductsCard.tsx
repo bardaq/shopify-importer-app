@@ -38,7 +38,7 @@ export function ProductsCard() {
 
   const handlePopulate = () => {
     setIsLoading(true);
-    products.forEach((product: any) => {
+    products.forEach((product: IProduct) => {
       createProduct(product);
     });
     setToastProps({ content: "1 products created!", error: false });
