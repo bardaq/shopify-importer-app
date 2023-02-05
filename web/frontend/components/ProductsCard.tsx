@@ -10,14 +10,15 @@ import { Toast } from "@shopify/app-bridge-react";
 import { useProductCreate } from "../hooks/productCreate/useProductCreate";
 import { useAppQuery } from "../hooks";
 import { IProduct } from "../hooks/productCreate/types";
-import products from "../hooks/productCreate/mock.json";
+import products from "../utils/test-mock.json";
+import { transformProducts } from "../utils/products";
 
 export function ProductsCard() {
   const emptyToastProps = { content: null, error: false };
   const [toastProps, setToastProps] = useState(emptyToastProps);
   const [isLoading, setIsLoading] = useState(true);
   const { createProduct, loading } = useProductCreate();
-
+  const transformedProducts = transformProducts(products);
   const {
     data,
     refetch: refetchProductCount,
@@ -38,7 +39,7 @@ export function ProductsCard() {
 
   const handlePopulate = () => {
     setIsLoading(true);
-    products.forEach((product: IProduct) => {
+    transformedProducts.forEach((product: IProduct) => {
       createProduct(product);
     });
     setToastProps({ content: "1 products created!", error: false });

@@ -6,7 +6,9 @@
       "title": "seo title",
       "description": "seo description"
     },
+
     "options": ["Колір", "Фасування", "Блиск"],
+    "collectionsToJoin": ["gid://shopify/Collection/283902050444"],
     "images": [
       {
         "src": "https://oxidom.com/upload/iblock/c98/oxidom-100_1L.webp?1583074032"
@@ -81,6 +83,7 @@
       "title": "seo title",
       "description": "seo description"
     },
+    "collectionsToJoin": ["gid://shopify/Collection/283902050444"],
     "options": ["Колір", "Фасування", "Блиск"],
     "images": [
       {

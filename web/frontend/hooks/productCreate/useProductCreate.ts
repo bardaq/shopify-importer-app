@@ -31,10 +31,17 @@ export const CREATE_PRODUCT_QUERY = gql`
           title
           description
         }
+        collections(first: 10) {
+          edges {
+            node {
+              productsCount
+            }
+          }
+        }
         options {
           values
         }
-        images(first: 3) {
+        images(first: 10) {
           edges {
             node {
               src
@@ -51,7 +58,7 @@ export const CREATE_PRODUCT_QUERY = gql`
             }
           }
         }
-        variants(first: 3) {
+        variants(first: 10) {
           edges {
             node {
               price
@@ -61,6 +68,7 @@ export const CREATE_PRODUCT_QUERY = gql`
               image {
                 url
               }
+              sku
             }
           }
         }

@@ -1,6 +1,7 @@
 import { Card, Heading, TextContainer, DisplayText } from "@shopify/polaris";
 import collections from "../hooks/collectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/collectionCreate/useCollectionCreate";
+import { getCollections } from "../utils/collections";
 
 export function CollectionCard() {
   const { createCollection, loading } = useCollectionCreate();

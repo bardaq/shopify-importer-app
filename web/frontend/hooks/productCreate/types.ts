@@ -5,6 +5,7 @@ export interface IProduct {
     title: string;
     description: string;
   };
+  collectionsToJoin: string[];
   options: string[];
   images: {
     src: string;
@@ -18,6 +19,6 @@ export interface IProduct {
     namespace: string;
     type: string;
     key: string;
-    value: string;
+    value: string | number | string[] | number[];
   }[];
 }
