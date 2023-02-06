@@ -1,13 +1,26 @@
 import { gql, useMutation } from "@apollo/client";
-import { IProduct } from "./types";
+import { CollectionProps } from "../../components/CollectionCard";
+import { IProductDetails } from "../../types/types";
+
+import { transformProduct } from "./utils";
 
 export function useProductCreate() {
   const [populateProduct, { loading }] = useMutation(CREATE_PRODUCT_QUERY);
 
-  const createProduct = async (product: IProduct) => {
+  const createProduct = async (
+    product: IProductDetails,
+    collectionsProps: CollectionProps[]
+  ) => {
+    const transformedProduct = transformProduct(product);
+    const collectionsToJoin: string[] = [];
+    collectionsProps.forEach((coll) => {
+      if (coll.handle == product.collectionSlug) {
+        collectionsToJoin.push(coll.id);
+      }
+    });
     const response = await populateProduct({
       variables: {
-        input: product,
+        input: { ...transformedProduct, collectionsToJoin: collectionsToJoin },
       },
     });
     if (response.errors) response.errors;
@@ -31,24 +44,17 @@ export const CREATE_PRODUCT_QUERY = gql`
           title
           description
         }
-        collections(first: 10) {
-          edges {
-            node {
-              productsCount
-            }
-          }
-        }
         options {
           values
         }
-        images(first: 10) {
+        images(first: 20) {
           edges {
             node {
               src
             }
           }
         }
-        metafields(first: 10) {
+        metafields(first: 50) {
           edges {
             node {
               namespace
@@ -58,7 +64,7 @@ export const CREATE_PRODUCT_QUERY = gql`
             }
           }
         }
-        variants(first: 10) {
+        variants(first: 30) {
           edges {
             node {
               price

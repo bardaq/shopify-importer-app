@@ -11,9 +11,15 @@ export function useCollectionCreate() {
       },
     });
     if (response.errors) {
-      return response.errors;
+      return;
     }
-    return response;
+
+    if (response.data) {
+      return {
+        handle: response.data.collectionCreate.collection.handle as string,
+        id: response.data.collectionCreate.collection.id as string,
+      };
+    }
   };
 
   return { createCollection, loading };
@@ -24,7 +30,6 @@ const CREATE_COLLECTION_QUERY = gql`
       collection {
         title
         descriptionHtml
-        handle
         image {
           src
         }
@@ -36,6 +41,10 @@ const CREATE_COLLECTION_QUERY = gql`
       userErrors {
         field
         message
+      }
+      collection {
+        id
+        handle
       }
     }
   }

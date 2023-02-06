@@ -7,18 +7,17 @@ import {
   TextStyle,
 } from "@shopify/polaris";
 import { Toast } from "@shopify/app-bridge-react";
-import { useProductCreate } from "../hooks/productCreate/useProductCreate";
+import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
 import { useAppQuery } from "../hooks";
-import { IProduct } from "../hooks/productCreate/types";
-import products from "../utils/test-mock.json";
-import { transformProducts } from "../utils/products";
+import products from "../hooks/useGetCollectionIdBySlug/test-mock.json";
+import { IProductDetails } from "../types/types";
 
 export function ProductsCard() {
   const emptyToastProps = { content: null, error: false };
   const [toastProps, setToastProps] = useState(emptyToastProps);
   const [isLoading, setIsLoading] = useState(true);
   const { createProduct, loading } = useProductCreate();
-  const transformedProducts = transformProducts(products);
+
   const {
     data,
     refetch: refetchProductCount,
@@ -39,8 +38,8 @@ export function ProductsCard() {
 
   const handlePopulate = () => {
     setIsLoading(true);
-    transformedProducts.forEach((product: IProduct) => {
-      createProduct(product);
+    products.forEach((product: IProductDetails) => {
+      createProduct(product); //Uncaught (in promise) Error: Invalid hook call. Hooks can only be called inside of the body of a function component.
     });
     setToastProps({ content: "1 products created!", error: false });
   };

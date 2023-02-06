@@ -21,6 +21,100 @@
       "description": "Eskaro Akzent SKY - акрилатная водоразбавимая глубокоматовая высокоукрывистая краска для потолков в сухих помещениях по цене 814.00 в OxiDom (ОксиДом). ✔Доставка по всей Украин",
       "canonical": "https://oxidom.com/ua/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/"
     },
+    "title": "Eskaro Akzent SKY - ВВВЦАЦА",
+    "slug": "eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu",
+    "url": "/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/",
+    "lang": "ru",
+    "images": [
+      "https://oxidom.com/upload/iblock/c98/oxidom-100_1L.webp?1583074032",
+
+      "https://oxidom.com/upload/iblock/e92/oxidom-100_3L.png",
+
+      "https://oxidom.com/upload/iblock/64a/oxidom-100_10L.png"
+    ],
+    "description_HTML": "",
+    "sku": 50650,
+    "vendor": "fefwef",
+    "options": ["Колір", "Фасування", "Блиск"],
+    "variants": [
+      {
+        "price": 257,
+        "sku": 257,
+        "options": ["безбарвний", "1 л.", "матовий"]
+      },
+      {
+        "price": 692,
+        "sku": 692,
+        "options": ["безбарвний", "3 л.", "матовий"]
+      },
+      {
+        "price": 2161,
+        "sku": 2161,
+        "options": ["безбарвний", "10 л.", "матовий"]
+      }
+    ],
+
+    "metafields": [
+      {
+        "namespace": "productProperties",
+        "type": "single_line_text_field",
+        "key": "колір",
+        "value": "Білий, після висихання прозорий"
+      },
+      {
+        "namespace": "productProperties",
+        "type": "single_line_text_field",
+        "key": "код товару (артикул)",
+        "value": "31888"
+      },
+      {
+        "namespace": "productProperties",
+        "type": "single_line_text_field",
+        "key": "час висихання",
+        "value": "2-3 години"
+      },
+      {
+        "namespace": "productProperties",
+        "type": "single_line_text_field",
+        "key": "висихання від пилу",
+        "value": "12 годин"
+      },
+      {
+        "namespace": "productProperties",
+        "type": "single_line_text_field",
+        "key": "витрата",
+        "value": "10-14 м²/л."
+      },
+      {
+        "namespace": "productProperties",
+        "type": "multi_line_text_field",
+        "key": "з УФ-фільтром\nзносостійкість",
+        "value": "10-14 м²/л."
+      }
+    ]
+  },
+  {
+    "collectionSlug": "shvabra",
+    "meta": {
+      "alternate": [
+        {
+          "href": "https://oxidom.com/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/",
+          "hrefLang": "ru"
+        },
+        {
+          "href": "https://oxidom.com/ua/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/",
+          "hrefLang": "x-default"
+        },
+        {
+          "href": "https://oxidom.com/ua/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/",
+          "hrefLang": "uk"
+        }
+      ],
+      "title": "Eskaro Akzent SKY (Эскаро Акцент СКАЙ) купить по цене 814.00 в OxiDom (ОксиДом)",
+      "keywords": "Eskaro Akzent SKY, Эскаро Акцент СКАЙ, акрилатная краска, водоразбавимая краска, глубокоматовая краска, краска для потолков, краска с высокой укрывистостью",
+      "description": "Eskaro Akzent SKY - акрилатная водоразбавимая глубокоматовая высокоукрывистая краска для потолков в сухих помещениях по цене 814.00 в OxiDom (ОксиДом). ✔Доставка по всей Украин",
+      "canonical": "https://oxidom.com/ua/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/"
+    },
     "title": "Eskaro Akzent SKY - Фарба з високою покриваністю",
     "slug": "eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu",
     "url": "/otdelochnye-materialy/kraski/eskaro-akzent-sky-kraska-s-vysokoyu-kryvistostyu/",
