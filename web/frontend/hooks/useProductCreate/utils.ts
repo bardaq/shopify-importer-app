@@ -1,6 +1,6 @@
-import { IProductDetails, IProductVariant } from "../../types/types";
+import { IProduct, IProductDetails, IProductVariant } from "../../types/index";
 
-export const transformProduct = (product: IProductDetails) => {
+export const transformProduct = (product: IProductDetails): IProduct => {
   const productTitle = product.title;
   const productDescriptionHtml = product.description_HTML;
   const seoTitle = product.meta.title;
@@ -8,7 +8,7 @@ export const transformProduct = (product: IProductDetails) => {
   const productOptions = product.options;
   const variants = transformVariants(product.variants, product.images);
   const metafields = product.metafields;
-  const images = transformImages(product.images); // images:[{src:/fasfafa.jpg}}
+  const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
 
   return {
     title: productTitle,
@@ -24,16 +24,6 @@ export const transformProduct = (product: IProductDetails) => {
     images: images,
     vendor: product.vendor,
   };
-};
-
-const transformImages = (images: string[]) => {
-  const transformedImages = [];
-  images.forEach((image) => {
-    transformedImages.push({
-      src: image,
-    });
-  });
-  return transformedImages;
 };
 
 const transformVariants = (variants: IProductVariant[], images: string[]) => {

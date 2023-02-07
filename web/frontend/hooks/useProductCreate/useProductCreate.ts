@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { CollectionProps } from "../../components/CollectionCard";
-import { IProductDetails } from "../../types/types";
+import { IProductDetails } from "../../types/index";
 import { useGetCollectionIdBySlug } from "../useGetCollectionIdBySlug/useGetCollectionIdBySlug";
 
 import { transformProduct } from "./utils";

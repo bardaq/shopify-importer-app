@@ -43,6 +43,7 @@ export interface IProduct {
   };
   collectionsToJoin: string[];
   options: string[];
+  vendor: string;
   images: {
     src: string;
   }[];

@@ -3,7 +3,7 @@ import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
 import products from "../hooks/useProductCreate/test-mock.json";
-import { IProductDetails } from "../types/types";
+import { IProductDetails } from "../types/";
 import { useState } from "react";
 
 export interface CollectionProps {
