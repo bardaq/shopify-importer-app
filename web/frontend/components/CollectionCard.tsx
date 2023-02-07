@@ -3,7 +3,7 @@ import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
 import products from "../hooks/useProductCreate/test-mock.json";
-import { IProductDetails } from "../types/";
+import { IProductDetails } from "../types/index";
 import { useState } from "react";
 
 export interface CollectionProps {
@@ -31,7 +31,7 @@ export function CollectionCard() {
 
   const handleProducts = () => {
     products.forEach((product: IProductDetails) => {
-      createProduct(product, collectionsProps); //Uncaught (in promise) Error: Invalid hook call. Hooks can only be called inside of the body of a function component.
+      createProduct(product, collectionsProps);
     });
   };
   return (

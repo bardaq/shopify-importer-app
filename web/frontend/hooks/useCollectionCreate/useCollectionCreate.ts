@@ -11,6 +11,7 @@ export function useCollectionCreate() {
       },
     });
     if (response.errors) {
+      console.log(response.errors);
       return;
     }
 
