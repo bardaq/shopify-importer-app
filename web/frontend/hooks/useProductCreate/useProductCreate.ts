@@ -1,33 +1,37 @@
 import { gql, useMutation } from "@apollo/client";
 import { CollectionProps } from "../../components/CollectionCard";
 import { IProductDetails } from "../../types/types";
+import { useGetCollectionIdBySlug } from "../useGetCollectionIdBySlug/useGetCollectionIdBySlug";
 
 import { transformProduct } from "./utils";
 
 export function useProductCreate() {
-  const [populateProduct, { loading }] = useMutation(CREATE_PRODUCT_QUERY);
-
+  const [populateProduct, { loading: loadPropuct }] =
+    useMutation(CREATE_PRODUCT_QUERY);
+  const { getCollectionToJoin } = useGetCollectionIdBySlug();
   const createProduct = async (
     product: IProductDetails,
     collectionsProps: CollectionProps[]
   ) => {
     const transformedProduct = transformProduct(product);
-    const collectionsToJoin: string[] = [];
-    collectionsProps.forEach((coll) => {
-      if (coll.handle == product.collectionSlug) {
-        collectionsToJoin.push(coll.id);
-      }
-    });
+    const collectionsToJoin = getCollectionToJoin(
+      collectionsProps,
+      product.collectionSlug
+    );
+
     const response = await populateProduct({
       variables: {
         input: { ...transformedProduct, collectionsToJoin: collectionsToJoin },
       },
     });
-    if (response.errors) response.errors;
-    return response;
+    if (response.errors) {
+      console.log(response.errors);
+      return;
+    }
+    return response.data;
   };
 
-  return { createProduct, loading };
+  return { createProduct, loadPropuct };
 }
 
 export const CREATE_PRODUCT_QUERY = gql`
@@ -54,6 +58,7 @@ export const CREATE_PRODUCT_QUERY = gql`
             }
           }
         }
+        vendor
         metafields(first: 50) {
           edges {
             node {

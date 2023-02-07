@@ -2,7 +2,7 @@ import { Card, Heading, TextContainer, DisplayText } from "@shopify/polaris";
 import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
-import products from "../hooks/useGetCollectionIdBySlug/test-mock.json";
+import products from "../hooks/useProductCreate/test-mock.json";
 import { IProductDetails } from "../types/types";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ export interface CollectionProps {
 
 export function CollectionCard() {
   const { createCollection, loading } = useCollectionCreate();
-  const { createProduct } = useProductCreate();
+  const { createProduct, loadPropuct } = useProductCreate();
   const [collectionsProps, setCollectionsProps] = useState<CollectionProps[]>(
     []
   );
@@ -58,7 +58,7 @@ export function CollectionCard() {
         primaryFooterAction={{
           content: "Create PROD",
           onAction: handleProducts,
-          loading,
+          loading: loadPropuct,
         }}
       >
         <TextContainer spacing="loose">

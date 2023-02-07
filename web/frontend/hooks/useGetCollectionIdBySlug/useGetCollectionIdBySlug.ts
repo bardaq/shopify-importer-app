@@ -1,29 +1,19 @@
-import { gql, useLazyQuery } from "@apollo/client";
+import { CollectionProps } from "../../components/CollectionCard";
 
 export function useGetCollectionIdBySlug() {
-  const [getId, { data, loading, error }] = useLazyQuery(FIND_CATEGORY_ID);
-
-  const getIdFromCollection = (collectionSlug: string) => {
-    getId({
-      variables: {
-        handle: collectionSlug,
-      },
+  const getCollectionToJoin = (
+    collectionsProps: CollectionProps[],
+    collectionSlug: string
+  ) => {
+    const collectionsToJoin: string[] = [];
+    collectionsProps.forEach((coll) => {
+      if (coll.handle == collectionSlug) {
+        collectionsToJoin.push(coll.id);
+      }
     });
 
-    return data;
+    return collectionsToJoin;
   };
-  // const collectionId = await getCollectionIdFromHandle({
-  //   variables: {
-  //     handle: product.collectionSlug,
-  //   },
-  // });
 
-  return { getIdFromCollection };
+  return { getCollectionToJoin };
 }
-export const FIND_CATEGORY_ID = gql`
-  query getCollectionIdFromHandle($handle: String!) {
-    collectionByHandle(handle: $handle) {
-      id
-    }
-  }
-`;

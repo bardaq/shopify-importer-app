@@ -22,6 +22,7 @@ export const transformProduct = (product: IProductDetails) => {
     variants: variants,
     metafields: metafields,
     images: images,
+    vendor: product.vendor,
   };
 };
 
