@@ -1,24 +1,882 @@
 [
   {
-    "title": "gruntovka_dlya_sten",
-    "descriptionHtml": "<p>SFWFWFFW</p>",
-    "image": {
-      "src": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/home-improvement/wp-content/uploads/2021/10/featured-image-types-of-paint.jpeg.jpg"
-    },
-    "seo": {
-      "title": "seo title",
-      "description": "seo description"
+    "title": "Оздоблювальніматеріали",
+    "url": "/ua/otdelochnye-materialy/"
+  },
+  {
+    "title": "Будівельніматеріали",
+    "url": "/ua/mineralnie-poverkhnosti/"
+  },
+  {
+    "title": "Антисептики для деревини",
+    "url": "/ua/otdelochnye-materialy/drevesina/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
     }
   },
   {
-    "title": "grunty",
-    "descriptionHtml": "<p>SFWFWFFW</p>",
-    "image": {
-      "src": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/home-improvement/wp-content/uploads/2021/10/featured-image-types-of-paint.jpeg.jpg"
-    },
-    "seo": {
-      "title": "seo title",
-      "description": "seo description"
+    "title": "Лаки",
+    "url": "/ua/otdelochnye-materialy/laki/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Фарби",
+    "url": "/ua/otdelochnye-materialy/kraski/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Масла",
+    "url": "/ua/otdelochnye-materialy/masla/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Клеї",
+    "url": "/ua/otdelochnye-materialy/klei/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Герметики",
+    "url": "/ua/otdelochnye-materialy/germetiki/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Емалі",
+    "url": "/ua/otdelochnye-materialy/emali/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Вогнебіозахист деревини",
+    "url": "/ua/otdelochnye-materialy/ognebiozajita-dlya-drevesinu/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Морилки",
+    "url": "/ua/otdelochnye-materialy/morilki/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Воски",
+    "url": "/ua/otdelochnye-materialy/voski/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Антиіржа",
+    "url": "/ua/otdelochnye-materialy/antirzhavchina-preobrazovatel-rzhavchiny/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Ґрунтовки",
+    "url": "/ua/otdelochnye-materialy/grunty/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Барвники",
+    "url": "/ua/otdelochnye-materialy/krasiteli/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Монтажна піна",
+    "url": "/ua/otdelochnye-materialy/montazhnaya-pena/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Поліролі",
+    "url": "/ua/otdelochnye-materialy/poliroli/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Розчинники для лаків і фарб",
+    "url": "/ua/otdelochnye-materialy/rastvoriteli-dlya-lakov-i-krasok/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Засоби по догляду за каменем",
+    "url": "/ua/otdelochnye-materialy/sredstva-po-ukhodu-za-kamnem/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Видаляч лаку і фарби",
+    "url": "/ua/otdelochnye-materialy/ydalitel-laka-kraski/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Шпаклівки",
+    "url": "/ua/otdelochnye-materialy/shpatlevki/",
+    "parent": {
+      "title": "Оздоблювальніматеріали",
+      "url": "/ua/otdelochnye-materialy/"
+    }
+  },
+  {
+    "title": "Суміші",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Шпаклівки",
+    "url": "/ua/mineralnie-poverkhnosti/schpaklevki/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Ізоляційні матеріали",
+    "url": "/ua/mineralnie-poverkhnosti/izolyacionnie-materiali/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Гіпсова плитка",
+    "url": "/ua/mineralnie-poverkhnosti/gipsovaya_plitka/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Ґрунтовки",
+    "url": "/ua/mineralnie-poverkhnosti/gruntovki/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Штукатурки",
+    "url": "/ua/mineralnie-poverkhnosti/dekorativnie-pokritiya-i-shtukaturki/",
+    "parent": {
+      "title": "Будівельніматеріали",
+      "url": "/ua/mineralnie-poverkhnosti/"
+    }
+  },
+  {
+    "title": "Антисептики для зовнішніх робіт",
+    "url": "/ua/otdelochnye-materialy/drevesina/antiseptiki-dlya-vneshnih-rabot/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Антижук (Анти-Шашіль)",
+    "url": "/ua/otdelochnye-materialy/drevesina/antizhuk/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Антисептики для бань і саун",
+    "url": "/ua/otdelochnye-materialy/drevesina/antiseptiki-dlya-bani-sauna/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Антисептики для внутрішніх робіт",
+    "url": "/ua/otdelochnye-materialy/drevesina/antiseptiki-dlya-vnytrennih-rabot/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Відбілювачі для деревини",
+    "url": "/ua/otdelochnye-materialy/drevesina/otbelivatel-dlya-drevesini/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Транспортні антисептики",
+    "url": "/ua/otdelochnye-materialy/drevesina/transportniy-antiseptik/",
+    "parent": {
+      "title": "Антисептики для деревини",
+      "url": "/ua/otdelochnye-materialy/drevesina/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Ґрунтувальний лак",
+    "url": "/ua/otdelochnye-materialy/laki/lak-grunt/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лак для бань і саун",
+    "url": "/ua/otdelochnye-materialy/laki/lak-dlya-bani-saun/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лак для дерева",
+    "url": "/ua/otdelochnye-materialy/laki/lak-dlya-dereva/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лак для каменю",
+    "url": "/ua/otdelochnye-materialy/laki/lak-dlya-kamnya/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лак для підлоги",
+    "url": "/ua/otdelochnye-materialy/laki/dlya-pola/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лак для торців деревини",
+    "url": "/ua/otdelochnye-materialy/laki/zaschita-torcov-drevesini/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лесуючі склади",
+    "url": "/ua/otdelochnye-materialy/laki/lessiryuschiy-sostav/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Яхтні лаки",
+    "url": "/ua/otdelochnye-materialy/laki/lak-yacht/",
+    "parent": {
+      "title": "Лаки",
+      "url": "/ua/otdelochnye-materialy/laki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Водоемульсійна фарба",
+    "url": "/ua/otdelochnye-materialy/kraski/vodoemylsionnaya-kraska/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Фарби по металу",
+    "url": "/ua/otdelochnye-materialy/kraski/kraska-po-metaly/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Фарби для зовнішніх робіт",
+    "url": "/ua/otdelochnye-materialy/kraski/kraski-dlya-vneshnih-rabot/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Фарби для внутрішніх робіт",
+    "url": "/ua/otdelochnye-materialy/kraski/kraski-dlya-vnytrennih-rabot/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Фарби для стель",
+    "url": "/ua/otdelochnye-materialy/kraski/kraska-dlya-potolka/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Латексна фарба",
+    "url": "/ua/otdelochnye-materialy/kraski/lateksnaya-kraska/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Штукатурки",
+    "url": "/ua/otdelochnye-materialy/kraski/shtukaturki/",
+    "parent": {
+      "title": "Фарби",
+      "url": "/ua/otdelochnye-materialy/kraski/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Датські масла",
+    "url": "/ua/otdelochnye-materialy/masla/datskoe-maslo/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Лляні масла",
+    "url": "/ua/otdelochnye-materialy/masla/lnyanoe-maslo/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Масло для бань і саун",
+    "url": "/ua/otdelochnye-materialy/masla/maslo-dlya-bani-i-saun/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Масла для меблів та інтер'єру",
+    "url": "/ua/otdelochnye-materialy/masla/maslo-dlya-mebeli-interior/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Масла для терас",
+    "url": "/ua/otdelochnye-materialy/masla/maslo-dlya-terras/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Палубне масло",
+    "url": "/ua/otdelochnye-materialy/masla/palubnoe-maslo/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Тикове масло",
+    "url": "/ua/otdelochnye-materialy/masla/tikovoe-maslo/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Тунгове масло",
+    "url": "/ua/otdelochnye-materialy/masla/tungovoe-maslo/",
+    "parent": {
+      "title": "Масла",
+      "url": "/ua/otdelochnye-materialy/masla/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Двокомпонентний клей",
+    "url": "/ua/otdelochnye-materialy/klei/dvuhkomponentniy-klei/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Клей для деревини",
+    "url": "/ua/otdelochnye-materialy/klei/kley_dlya_drevesyn/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Клей для підлоги",
+    "url": "/ua/otdelochnye-materialy/klei/kley-dlya-pola/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Контактний клей",
+    "url": "/ua/otdelochnye-materialy/klei/kontaktniy-klei/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Паркетный клей",
+    "url": "/ua/otdelochnye-materialy/klei/klei-parketniy/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Поліуретановий клей",
+    "url": "/ua/otdelochnye-materialy/klei/poliyretanoviy-klei/",
+    "parent": {
+      "title": "Клеї",
+      "url": "/ua/otdelochnye-materialy/klei/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Герметики для деревини",
+    "url": "/ua/otdelochnye-materialy/germetiki/germetiki-dlya-drevesini/",
+    "parent": {
+      "title": "Герметики",
+      "url": "/ua/otdelochnye-materialy/germetiki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Герметики для бетону",
+    "url": "/ua/otdelochnye-materialy/germetiki/germetiki_dlya_betona/",
+    "parent": {
+      "title": "Герметики",
+      "url": "/ua/otdelochnye-materialy/germetiki/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Емаль для металу",
+    "url": "/ua/otdelochnye-materialy/emali/emal_dlya_metalla/",
+    "parent": {
+      "title": "Емалі",
+      "url": "/ua/otdelochnye-materialy/emali/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Емаль для дерева",
+    "url": "/ua/otdelochnye-materialy/emali/emal_dlya_dereva/",
+    "parent": {
+      "title": "Емалі",
+      "url": "/ua/otdelochnye-materialy/emali/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Емаль для підлоги",
+    "url": "/ua/otdelochnye-materialy/emali/emali-dlya-pola/",
+    "parent": {
+      "title": "Емалі",
+      "url": "/ua/otdelochnye-materialy/emali/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Емаль для ванни",
+    "url": "/ua/otdelochnye-materialy/emali/emal_dlya_vanny/",
+    "parent": {
+      "title": "Емалі",
+      "url": "/ua/otdelochnye-materialy/emali/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Грунтовка для дерева",
+    "url": "/ua/otdelochnye-materialy/grunty/gruntovka_dlya_dereva/",
+    "parent": {
+      "title": "Ґрунтовки",
+      "url": "/ua/otdelochnye-materialy/grunty/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Грунтовка по металу",
+    "url": "/ua/otdelochnye-materialy/grunty/gruntovka_po_metallu/",
+    "parent": {
+      "title": "Ґрунтовки",
+      "url": "/ua/otdelochnye-materialy/grunty/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Грунтовка для стін",
+    "url": "/ua/otdelochnye-materialy/grunty/gruntovka_dlya_sten/",
+    "parent": {
+      "title": "Ґрунтовки",
+      "url": "/ua/otdelochnye-materialy/grunty/",
+      "parent": {
+        "title": "Оздоблювальніматеріали",
+        "url": "/ua/otdelochnye-materialy/"
+      }
+    }
+  },
+  {
+    "title": "Гідрофобізатори / вологоізолятори",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/gidrofobizator/",
+    "parent": {
+      "title": "Суміші",
+      "url": "/ua/mineralnie-poverkhnosti/smesi/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Пластифікатор",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/plastifikator/",
+    "parent": {
+      "title": "Суміші",
+      "url": "/ua/mineralnie-poverkhnosti/smesi/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Суміші для гідроізоляції",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/smesi-dlya-gidroizolyatsii/",
+    "parent": {
+      "title": "Суміші",
+      "url": "/ua/mineralnie-poverkhnosti/smesi/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Засоби для видалення цвілі (антицвіль)",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/antiplesen/",
+    "parent": {
+      "title": "Суміші",
+      "url": "/ua/mineralnie-poverkhnosti/smesi/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Засоби для видалення висолів",
+    "url": "/ua/mineralnie-poverkhnosti/smesi/antisol/",
+    "parent": {
+      "title": "Суміші",
+      "url": "/ua/mineralnie-poverkhnosti/smesi/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Шпаклівка для деревини",
+    "url": "/ua/mineralnie-poverkhnosti/schpaklevki/schpaklevki-dlya-drevesini/",
+    "parent": {
+      "title": "Шпаклівки",
+      "url": "/ua/mineralnie-poverkhnosti/schpaklevki/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Шпаклівки для паркету",
+    "url": "/ua/mineralnie-poverkhnosti/schpaklevki/schpaklevki-dlya-parketa/",
+    "parent": {
+      "title": "Шпаклівки",
+      "url": "/ua/mineralnie-poverkhnosti/schpaklevki/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Бітумна стрічка",
+    "url": "/ua/mineralnie-poverkhnosti/izolyacionnie-materiali/bitumnaya-lenta/",
+    "parent": {
+      "title": "Ізоляційні матеріали",
+      "url": "/ua/mineralnie-poverkhnosti/izolyacionnie-materiali/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Джгут ущільнювальний",
+    "url": "/ua/mineralnie-poverkhnosti/izolyacionnie-materiali/zgut-yplotnitelniy/",
+    "parent": {
+      "title": "Ізоляційні матеріали",
+      "url": "/ua/mineralnie-poverkhnosti/izolyacionnie-materiali/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Грунтовка під клей",
+    "url": "/ua/mineralnie-poverkhnosti/gruntovki/grunt-pod-klei/",
+    "parent": {
+      "title": "Ґрунтовки",
+      "url": "/ua/mineralnie-poverkhnosti/gruntovki/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Грунтовка під фарбу",
+    "url": "/ua/mineralnie-poverkhnosti/gruntovki/gruntovka-pod-krasku/",
+    "parent": {
+      "title": "Ґрунтовки",
+      "url": "/ua/mineralnie-poverkhnosti/gruntovki/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
+    }
+  },
+  {
+    "title": "Структурна штукатурка",
+    "url": "/ua/mineralnie-poverkhnosti/dekorativnie-pokritiya-i-shtukaturki/strukturnie-shtukaturki/",
+    "parent": {
+      "title": "Штукатурки",
+      "url": "/ua/mineralnie-poverkhnosti/dekorativnie-pokritiya-i-shtukaturki/",
+      "parent": {
+        "title": "Будівельніматеріали",
+        "url": "/ua/mineralnie-poverkhnosti/"
+      }
     }
   }
 ]

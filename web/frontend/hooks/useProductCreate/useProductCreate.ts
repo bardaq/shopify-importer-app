@@ -24,9 +24,9 @@ export function useProductCreate() {
         input: { ...transformedProduct, collectionsToJoin: collectionsToJoin },
       },
     });
+
     if (response.errors) {
-      console.log(response.errors);
-      return;
+      return response.errors;
     }
     return response.data;
   };
@@ -54,7 +54,7 @@ export const CREATE_PRODUCT_QUERY = gql`
         images(first: 20) {
           edges {
             node {
-              src
+              url
             }
           }
         }

@@ -7,7 +7,10 @@ export const transformProduct = (product: IProductDetails): IProduct => {
   const seoDescription = product.meta.description;
   const productOptions = product.options;
   const variants = transformVariants(product.variants, product.images);
-  const metafields = product.metafields;
+  const metafields = product.metafields.map((metafield) => ({
+    ...metafield,
+    namespace: metafield.key,
+  }));
   const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
 
   return {

@@ -1,18 +1,16 @@
 import { gql, useMutation } from "@apollo/client";
-import { ICollection } from "./types";
 
 export function useCollectionCreate() {
   const [collectionCreate, { loading }] = useMutation(CREATE_COLLECTION_QUERY);
 
-  const createCollection = async (collection: ICollection) => {
+  const createCollection = async (collection: any) => {
     const response = await collectionCreate({
       variables: {
         input: collection,
       },
     });
     if (response.errors) {
-      console.log(response.errors);
-      return;
+      return response.errors;
     }
 
     if (response.data) {
@@ -30,14 +28,7 @@ const CREATE_COLLECTION_QUERY = gql`
     collectionCreate(input: $input) {
       collection {
         title
-        descriptionHtml
-        image {
-          src
-        }
-        seo {
-          description
-          title
-        }
+        handle
       }
       userErrors {
         field

@@ -3,7 +3,7 @@ import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
 import products from "../hooks/useProductCreate/test-mock.json";
-import { IProductDetails } from "../types/index";
+
 import { useState } from "react";
 
 export interface CollectionProps {
@@ -21,7 +21,11 @@ export function CollectionCard() {
   const handleCollections = async () => {
     const collectionsObjects = [];
     collections.forEach(async (collection) => {
-      const collProps = await createCollection(collection);
+      const collWithoutParent = {
+        title: collection.title,
+        handle: collection.url.split("/").at(-2),
+      };
+      const collProps = await createCollection(collWithoutParent);
       if (collProps) {
         collectionsObjects.push(collProps);
       }
@@ -29,10 +33,10 @@ export function CollectionCard() {
     });
   };
 
-  const handleProducts = () => {
-    products.forEach((product: IProductDetails) => {
-      createProduct(product, collectionsProps);
-    });
+  const handleProducts = async () => {
+    for (const product of products) {
+      await createProduct(product, collectionsProps);
+    }
   };
   return (
     <>

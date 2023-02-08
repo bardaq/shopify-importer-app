@@ -13,7 +13,7 @@ export interface IProductVariant {
 }
 
 export interface IProductMetafield {
-  namespace: string;
+  namespace?: string;
   key: string;
   type: string;
   value: string | number | string[] | number[];
