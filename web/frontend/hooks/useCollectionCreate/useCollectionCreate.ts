@@ -10,6 +10,7 @@ export function useCollectionCreate() {
       },
     });
     if (response.errors) {
+      console.log({ errrr: response.errors });
       return response.errors;
     }
 

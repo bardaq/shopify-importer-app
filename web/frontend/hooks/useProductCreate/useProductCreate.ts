@@ -24,11 +24,14 @@ export function useProductCreate() {
         input: { ...transformedProduct, collectionsToJoin: collectionsToJoin },
       },
     });
+    const userErrors = response.data.productCreate.userErrors;
 
-    if (response.errors) {
-      return response.errors;
+    if (userErrors.length) {
+      const errorsArr = userErrors.map((error) => error.message);
+      const errors = errorsArr.join(`\n`);
+      throw new Error(JSON.stringify(errors));
     }
-    return response.data;
+    return response;
   };
 
   return { createProduct, loadPropuct };

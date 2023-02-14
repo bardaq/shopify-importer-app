@@ -3,8 +3,11 @@ import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
 import products from "../hooks/useProductCreate/test-mock.json";
-
 import { useState } from "react";
+import { useEnableLocale } from "../hooks/useEnableLocale/useEnableLocale";
+import { useGetTranslatableResources } from "../hooks/useGetTranslatableResources/useGetTranslatableResources";
+import { useAddTranslation } from "../hooks/useAddTranslation/useAddTranslation";
+import { useUpdateLocale } from "../hooks/useUpdateLocale/useUpdateLocale";
 
 export interface CollectionProps {
   handle: string;
@@ -17,6 +20,10 @@ export function CollectionCard() {
   const [collectionsProps, setCollectionsProps] = useState<CollectionProps[]>(
     []
   );
+  const { createLocale, localeLoading } = useEnableLocale();
+  const data = useGetTranslatableResources();
+  const { createTranslationProduct, translationLoading } = useAddTranslation();
+  const { updateLocaleShop, updatingLoading } = useUpdateLocale();
 
   const handleCollections = async () => {
     const collectionsObjects = [];
@@ -35,9 +42,34 @@ export function CollectionCard() {
 
   const handleProducts = async () => {
     for (const product of products) {
-      await createProduct(product, collectionsProps);
+      try {
+        const createdProd = await createProduct(product, collectionsProps);
+        console.log(createdProd);
+      } catch (error) {
+        console.log(
+          `Failed to import product:${product.title}, \n url:${product.url} \n`,
+          error
+        );
+      }
     }
   };
+
+  const handleLocale = async () => {
+    await createLocale("ru");
+  };
+
+  const handleTranslations = async () => {
+    await createTranslationProduct(
+      data.resourceId,
+      data.translatableContent[0],
+      "ru"
+    );
+  };
+
+  const handleUpdateLocale = async () => {
+    await updateLocaleShop();
+  };
+
   return (
     <>
       <Card
@@ -72,6 +104,33 @@ export function CollectionCard() {
           </Heading>
         </TextContainer>
       </Card>
+      <Card
+        title="LOCALE"
+        sectioned
+        primaryFooterAction={{
+          content: "Create LOCALE",
+          onAction: handleLocale,
+          loading: localeLoading,
+        }}
+      ></Card>
+      <Card
+        title="ADD TRANSLATION"
+        sectioned
+        primaryFooterAction={{
+          content: "ADD TRANSLATION",
+          onAction: handleTranslations,
+          loading: translationLoading,
+        }}
+      ></Card>
+      <Card
+        title="UPDATE LOCALE"
+        sectioned
+        primaryFooterAction={{
+          content: "UPDATE LOCALE",
+          onAction: handleUpdateLocale,
+          loading: updatingLoading,
+        }}
+      ></Card>
     </>
   );
 }

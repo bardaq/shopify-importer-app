@@ -5,12 +5,8 @@ export const transformProduct = (product: IProductDetails): IProduct => {
   const productDescriptionHtml = product.description_HTML;
   const seoTitle = product.meta.title;
   const seoDescription = product.meta.description;
-  const productOptions = product.options;
   const variants = transformVariants(product.variants, product.images);
-  const metafields = product.metafields.map((metafield) => ({
-    ...metafield,
-    namespace: metafield.key,
-  }));
+
   const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
 
   return {
@@ -21,9 +17,9 @@ export const transformProduct = (product: IProductDetails): IProduct => {
       description: seoDescription,
     },
     collectionsToJoin: [],
-    options: productOptions,
+    options: product.options,
     variants: variants,
-    metafields: metafields,
+    metafields: product.metafields,
     images: images,
     vendor: product.vendor,
   };
@@ -31,13 +27,18 @@ export const transformProduct = (product: IProductDetails): IProduct => {
 
 const transformVariants = (variants: IProductVariant[], images: string[]) => {
   const transformedVariants = [];
+
+  // const unique = Array.from(new Set(variants));
+
+  // console.log(unique);
   variants.forEach((variant, index) => {
     transformedVariants.push({
-      ...variant,
+      options: variant.options,
       price: variant.price.toString(),
       sku: variant.sku.toString(),
       imageSrc: images[index],
     });
   });
+
   return transformedVariants;
 };

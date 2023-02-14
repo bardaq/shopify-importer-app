@@ -13,7 +13,7 @@ export interface IProductVariant {
 }
 
 export interface IProductMetafield {
-  namespace?: string;
+  namespace: string;
   key: string;
   type: string;
   value: string | number | string[] | number[];
@@ -58,4 +58,11 @@ export interface IProduct {
     key: string;
     value: string | number | string[] | number[];
   }[];
+}
+
+export interface ITransformedVariants {
+  options: string[];
+  price: string;
+  sku: string;
+  imageSrc: string;
 }
