@@ -47,6 +47,7 @@ export const CREATE_PRODUCT_QUERY = gql`
       product {
         title
         descriptionHtml
+        handle
         seo {
           title
           description

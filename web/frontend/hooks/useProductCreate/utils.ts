@@ -6,7 +6,6 @@ export const transformProduct = (product: IProductDetails): IProduct => {
   const seoTitle = product.meta.title;
   const seoDescription = product.meta.description;
   const variants = transformVariants(product.variants, product.images);
-
   const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
 
   return {
@@ -16,6 +15,7 @@ export const transformProduct = (product: IProductDetails): IProduct => {
       title: seoTitle,
       description: seoDescription,
     },
+    handle: product.slug,
     collectionsToJoin: [],
     options: product.options,
     variants: variants,

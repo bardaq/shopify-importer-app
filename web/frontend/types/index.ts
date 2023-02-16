@@ -41,6 +41,7 @@ export interface IProduct {
     title: string;
     description: string;
   };
+  handle: string;
   collectionsToJoin: string[];
   options: string[];
   vendor: string;
