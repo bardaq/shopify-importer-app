@@ -14,10 +14,7 @@ export function useProductCreate() {
     collectionsProps: CollectionProps[]
   ) => {
     const transformedProduct = transformProduct(product);
-    const collectionsToJoin = getCollectionToJoin(
-      collectionsProps,
-      product.collectionSlug
-    );
+    const collectionsToJoin = await getCollectionToJoin(product.collectionSlug);
 
     const response = await populateProduct({
       variables: {

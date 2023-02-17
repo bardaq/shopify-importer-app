@@ -20,6 +20,7 @@ export function CollectionCard() {
   const [collectionsProps, setCollectionsProps] = useState<CollectionProps[]>(
     []
   );
+
   const { createLocale, localeLoading } = useEnableLocale();
   const data = useGetTranslatableResources();
   const { createTranslationProduct, translationLoading } = useAddTranslation();

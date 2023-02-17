@@ -1,9 +1,13 @@
+import { gql, useQuery } from "@apollo/client";
 import { IProduct, IProductDetails, IProductVariant } from "../../types/index";
 
 export const transformProduct = (product: IProductDetails): IProduct => {
   const productTitle = product.title;
   const productDescriptionHtml = product.description_HTML;
   const seoTitle = product.meta.title;
+  const options = product.options.includes("База (базис) фарби")
+    ? product.options.filter((o) => !o.includes("База (базис) фарби"))
+    : product.options;
   const seoDescription = product.meta.description;
   const variants = transformVariants(product.variants, product.images);
   const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
@@ -17,7 +21,7 @@ export const transformProduct = (product: IProductDetails): IProduct => {
     },
     handle: product.slug,
     collectionsToJoin: [],
-    options: product.options,
+    options: options as string[],
     variants: variants,
     metafields: product.metafields,
     images: images,
