@@ -8,6 +8,7 @@ import { useEnableLocale } from "../hooks/useEnableLocale/useEnableLocale";
 import { useGetTranslatableResources } from "../hooks/useGetTranslatableResources/useGetTranslatableResources";
 import { useAddTranslation } from "../hooks/useAddTranslation/useAddTranslation";
 import { useUpdateLocale } from "../hooks/useUpdateLocale/useUpdateLocale";
+import { useProductUpdate } from "../hooks/useProductUpdate/useProductUpdate";
 
 export interface CollectionProps {
   handle: string;
@@ -17,34 +18,39 @@ export interface CollectionProps {
 export function CollectionCard() {
   const { createCollection, loading } = useCollectionCreate();
   const { createProduct, loadPropuct } = useProductCreate();
-  const [collectionsProps, setCollectionsProps] = useState<CollectionProps[]>(
-    []
-  );
-
+  const { updateProductCollectionToJoin } = useProductUpdate();
   const { createLocale, localeLoading } = useEnableLocale();
   const data = useGetTranslatableResources();
   const { createTranslationProduct, translationLoading } = useAddTranslation();
   const { updateLocaleShop, updatingLoading } = useUpdateLocale();
 
   const handleCollections = async () => {
-    const collectionsObjects = [];
-    collections.forEach(async (collection) => {
-      const collWithoutParent = {
-        title: collection.title,
-        handle: collection.url.split("/").at(-2),
-      };
-      const collProps = await createCollection(collWithoutParent);
-      if (collProps) {
-        collectionsObjects.push(collProps);
+    for (const collection of collections) {
+      try {
+        const collWithoutParent = {
+          title: collection.title,
+          handle: collection.url.split("/").at(-2),
+        };
+        const collProps = await createCollection(collWithoutParent);
+        for (const product of products) {
+          if (product.collectionSlug == collProps.handle) {
+            try {
+              await updateProductCollectionToJoin(product, collProps.id);
+            } catch (error) {
+              console.log(error);
+            }
+          }
+        }
+      } catch (error) {
+        console.log(error);
       }
-      setCollectionsProps(collectionsObjects);
-    });
+    }
   };
 
   const handleProducts = async () => {
     for (const product of products) {
       try {
-        const createdProd = await createProduct(product, collectionsProps);
+        const createdProd = await createProduct(product);
         console.log(createdProd);
       } catch (error) {
         console.log(

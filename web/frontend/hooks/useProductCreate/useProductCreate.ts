@@ -9,10 +9,7 @@ export function useProductCreate() {
   const [populateProduct, { loading: loadPropuct }] =
     useMutation(CREATE_PRODUCT_QUERY);
   const { getCollectionToJoin } = useGetCollectionIdBySlug();
-  const createProduct = async (
-    product: IProductDetails,
-    collectionsProps: CollectionProps[]
-  ) => {
+  const createProduct = async (product: IProductDetails) => {
     const transformedProduct = transformProduct(product);
     const collectionsToJoin = await getCollectionToJoin(product.collectionSlug);
 

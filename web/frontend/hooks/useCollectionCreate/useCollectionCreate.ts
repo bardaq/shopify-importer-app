@@ -9,17 +9,16 @@ export function useCollectionCreate() {
         input: collection,
       },
     });
-    if (response.errors) {
-      console.log({ errrr: response.errors });
-      return response.errors;
+
+    const userErrors = response.data.collectionCreate.userErrors;
+    if (userErrors.length) {
+      throw new Error("Collection already exists");
     }
 
-    if (response.data) {
-      return {
-        handle: response.data.collectionCreate.collection.handle as string,
-        id: response.data.collectionCreate.collection.id as string,
-      };
-    }
+    return {
+      handle: response.data.collectionCreate.collection.handle as string,
+      id: response.data.collectionCreate.collection.id as string,
+    };
   };
 
   return { createCollection, loading };

@@ -3,9 +3,7 @@ import { useCollectionCreate } from "../useCollectionCreate/useCollectionCreate"
 import CyrillicToTranslit from "cyrillic-to-translit-js";
 
 export function useGetCollectionIdBySlug() {
-  const [getColl, { loading, data, error }] = useLazyQuery(
-    COLLECTION_QUERY_BY_HANDLE
-  );
+  const [getColl] = useLazyQuery(COLLECTION_QUERY_BY_HANDLE);
   const { createCollection, loading: loadColl } = useCollectionCreate();
   const getCollectionToJoin = async (collectionSlug: string) => {
     const collectionsToJoin: string[] = [];
