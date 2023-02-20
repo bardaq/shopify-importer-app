@@ -1,26 +1,36 @@
-import { gql, useLazyQuery } from "@apollo/client";
+import { gql, useLazyQuery, useMutation, useQuery } from "@apollo/client";
+import { useCollectionCreate } from "../useCollectionCreate/useCollectionCreate";
+import CyrillicToTranslit from "cyrillic-to-translit-js";
 
 export function useGetCollectionIdBySlug() {
-  const [getId, { data, loading, error }] = useLazyQuery(FIND_CATEGORY_ID);
+  const [getColl] = useLazyQuery(COLLECTION_QUERY_BY_HANDLE);
+  const { createCollection, loading: loadColl } = useCollectionCreate();
+  const getCollectionToJoin = async (collectionSlug: string) => {
+    const collectionsToJoin: string[] = [];
+    const response = await getColl({ variables: { handle: collectionSlug } });
 
-  const getIdFromCollection = (collectionSlug: string) => {
-    getId({
-      variables: {
+    if (response.data.collectionByHandle != null) {
+      collectionsToJoin.push(response.data.collectionByHandle.id);
+    } else if (response.data.collectionByHandle == null) {
+      const cyrillicTitle = CyrillicToTranslit({ preset: "uk" })
+        .reverse(collectionSlug)
+        .replace("иа", "я")
+        .replace("-", " ");
+
+      const newCollection = {
+        title: cyrillicTitle,
         handle: collectionSlug,
-      },
-    });
-
-    return data;
+      };
+      const createNewCollection = await createCollection(newCollection);
+      collectionsToJoin.push(createNewCollection.id);
+    }
+    return collectionsToJoin;
   };
-  // const collectionId = await getCollectionIdFromHandle({
-  //   variables: {
-  //     handle: product.collectionSlug,
-  //   },
-  // });
 
-  return { getIdFromCollection };
+  return { getCollectionToJoin };
 }
-export const FIND_CATEGORY_ID = gql`
+
+const COLLECTION_QUERY_BY_HANDLE = gql`
   query getCollectionIdFromHandle($handle: String!) {
     collectionByHandle(handle: $handle) {
       id

@@ -2,9 +2,13 @@ import { Card, Heading, TextContainer, DisplayText } from "@shopify/polaris";
 import collections from "../hooks/useCollectionCreate/mock.json";
 import { useCollectionCreate } from "../hooks/useCollectionCreate/useCollectionCreate";
 import { useProductCreate } from "../hooks/useProductCreate/useProductCreate";
-import products from "../hooks/useGetCollectionIdBySlug/test-mock.json";
-import { IProductDetails } from "../types/types";
+import products from "../hooks/useProductCreate/test-mock.json";
 import { useState } from "react";
+import { useEnableLocale } from "../hooks/useEnableLocale/useEnableLocale";
+import { useGetTranslatableResources } from "../hooks/useGetTranslatableResources/useGetTranslatableResources";
+import { useAddTranslation } from "../hooks/useAddTranslation/useAddTranslation";
+import { useUpdateLocale } from "../hooks/useUpdateLocale/useUpdateLocale";
+import { useProductUpdate } from "../hooks/useProductUpdate/useProductUpdate";
 
 export interface CollectionProps {
   handle: string;
@@ -13,27 +17,66 @@ export interface CollectionProps {
 
 export function CollectionCard() {
   const { createCollection, loading } = useCollectionCreate();
-  const { createProduct } = useProductCreate();
-  const [collectionsProps, setCollectionsProps] = useState<CollectionProps[]>(
-    []
-  );
+  const { createProduct, loadPropuct } = useProductCreate();
+  const { updateProductCollectionToJoin } = useProductUpdate();
+  const { createLocale, localeLoading } = useEnableLocale();
+  const data = useGetTranslatableResources();
+  const { createTranslationProduct, translationLoading } = useAddTranslation();
+  const { updateLocaleShop, updatingLoading } = useUpdateLocale();
 
   const handleCollections = async () => {
-    const collectionsObjects = [];
-    collections.forEach(async (collection) => {
-      const collProps = await createCollection(collection);
-      if (collProps) {
-        collectionsObjects.push(collProps);
+    for (const collection of collections) {
+      try {
+        const collWithoutParent = {
+          title: collection.title,
+          handle: collection.url.split("/").at(-2),
+        };
+        const collProps = await createCollection(collWithoutParent);
+        for (const product of products) {
+          if (product.collectionSlug == collProps.handle) {
+            try {
+              await updateProductCollectionToJoin(product, collProps.id);
+            } catch (error) {
+              console.log(error);
+            }
+          }
+        }
+      } catch (error) {
+        console.log(error);
       }
-      setCollectionsProps(collectionsObjects);
-    });
+    }
   };
 
-  const handleProducts = () => {
-    products.forEach((product: IProductDetails) => {
-      createProduct(product, collectionsProps); //Uncaught (in promise) Error: Invalid hook call. Hooks can only be called inside of the body of a function component.
-    });
+  const handleProducts = async () => {
+    for (const product of products) {
+      try {
+        const createdProd = await createProduct(product);
+        console.log(createdProd);
+      } catch (error) {
+        console.log(
+          `Failed to import product:${product.title}, \n url:${product.url} \n`,
+          error
+        );
+      }
+    }
   };
+
+  const handleLocale = async () => {
+    await createLocale("ru");
+  };
+
+  const handleTranslations = async () => {
+    await createTranslationProduct(
+      data.resourceId,
+      data.translatableContent[0],
+      "ru"
+    );
+  };
+
+  const handleUpdateLocale = async () => {
+    await updateLocaleShop();
+  };
+
   return (
     <>
       <Card
@@ -58,7 +101,7 @@ export function CollectionCard() {
         primaryFooterAction={{
           content: "Create PROD",
           onAction: handleProducts,
-          loading,
+          loading: loadPropuct,
         }}
       >
         <TextContainer spacing="loose">
@@ -68,6 +111,33 @@ export function CollectionCard() {
           </Heading>
         </TextContainer>
       </Card>
+      <Card
+        title="LOCALE"
+        sectioned
+        primaryFooterAction={{
+          content: "Create LOCALE",
+          onAction: handleLocale,
+          loading: localeLoading,
+        }}
+      ></Card>
+      <Card
+        title="ADD TRANSLATION"
+        sectioned
+        primaryFooterAction={{
+          content: "ADD TRANSLATION",
+          onAction: handleTranslations,
+          loading: translationLoading,
+        }}
+      ></Card>
+      <Card
+        title="UPDATE LOCALE"
+        sectioned
+        primaryFooterAction={{
+          content: "UPDATE LOCALE",
+          onAction: handleUpdateLocale,
+          loading: updatingLoading,
+        }}
+      ></Card>
     </>
   );
 }

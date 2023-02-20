@@ -1,33 +1,34 @@
 import { gql, useMutation } from "@apollo/client";
 import { CollectionProps } from "../../components/CollectionCard";
-import { IProductDetails } from "../../types/types";
+import { IProductDetails } from "../../types/index";
+import { useGetCollectionIdBySlug } from "../useGetCollectionIdBySlug/useGetCollectionIdBySlug";
 
 import { transformProduct } from "./utils";
 
 export function useProductCreate() {
-  const [populateProduct, { loading }] = useMutation(CREATE_PRODUCT_QUERY);
-
-  const createProduct = async (
-    product: IProductDetails,
-    collectionsProps: CollectionProps[]
-  ) => {
+  const [populateProduct, { loading: loadPropuct }] =
+    useMutation(CREATE_PRODUCT_QUERY);
+  const { getCollectionToJoin } = useGetCollectionIdBySlug();
+  const createProduct = async (product: IProductDetails) => {
     const transformedProduct = transformProduct(product);
-    const collectionsToJoin: string[] = [];
-    collectionsProps.forEach((coll) => {
-      if (coll.handle == product.collectionSlug) {
-        collectionsToJoin.push(coll.id);
-      }
-    });
+    const collectionsToJoin = await getCollectionToJoin(product.collectionSlug);
+
     const response = await populateProduct({
       variables: {
         input: { ...transformedProduct, collectionsToJoin: collectionsToJoin },
       },
     });
-    if (response.errors) response.errors;
+    const userErrors = response.data.productCreate.userErrors;
+
+    if (userErrors.length) {
+      const errorsArr = userErrors.map((error) => error.message);
+      const errors = errorsArr.join(`\n`);
+      throw new Error(JSON.stringify(errors));
+    }
     return response;
   };
 
-  return { createProduct, loading };
+  return { createProduct, loadPropuct };
 }
 
 export const CREATE_PRODUCT_QUERY = gql`
@@ -40,6 +41,7 @@ export const CREATE_PRODUCT_QUERY = gql`
       product {
         title
         descriptionHtml
+        handle
         seo {
           title
           description
@@ -50,10 +52,11 @@ export const CREATE_PRODUCT_QUERY = gql`
         images(first: 20) {
           edges {
             node {
-              src
+              url
             }
           }
         }
+        vendor
         metafields(first: 50) {
           edges {
             node {
