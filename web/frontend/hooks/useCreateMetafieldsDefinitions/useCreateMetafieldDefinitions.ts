@@ -25,6 +25,15 @@ export function useCreateMetafieldDefinitions() {
         definition: metafieldDefinition,
       },
     });
+
+    const userErrors = response.data.metafieldDefinitionCreate.userErrors;
+
+    if (userErrors.length) {
+      const errorsArr = userErrors.map((error) => error.message);
+      const errors = errorsArr.join(`\n`);
+      throw new Error(JSON.stringify(errors));
+    }
+
     return response;
   };
   return { createMetaDefinition, metaLoading };

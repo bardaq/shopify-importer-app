@@ -1,4 +1,3 @@
-import { gql, useQuery } from "@apollo/client";
 import { IProduct, IProductDetails, IProductVariant } from "../../types/index";
 
 export const transformProduct = (product: IProductDetails): IProduct => {
@@ -11,7 +10,7 @@ export const transformProduct = (product: IProductDetails): IProduct => {
   const seoDescription = product.meta.description;
   const variants = transformVariants(product.variants, product.images);
   const images = product.images.map((image) => ({ src: image })); // images:[{src:/fasfafa.jpg}}
-
+  const metafields = transformedMetafields(product.metafields);
   return {
     title: productTitle,
     descriptionHtml: productDescriptionHtml,
@@ -20,10 +19,9 @@ export const transformProduct = (product: IProductDetails): IProduct => {
       description: seoDescription,
     },
     handle: product.slug,
-    collectionsToJoin: [],
     options: options as string[],
     variants: variants,
-    metafields: product.metafields,
+    metafields: metafields,
     images: images,
     vendor: product.vendor,
   };
@@ -45,4 +43,18 @@ const transformVariants = (variants: IProductVariant[], images: string[]) => {
   });
 
   return transformedVariants;
+};
+
+const transformedMetafields = (metafields) => {
+  const transformedMeta = metafields.map((metafieldItem) => ({
+    namespace: metafieldItem.namespace,
+    key: metafieldItem.key,
+    value: metafieldItem.value,
+    type: "single_line_text_field",
+  }));
+  const filteredMeta = transformedMeta.filter(
+    (metafield) => metafield.key != "vyrobnyk"
+  );
+
+  return filteredMeta;
 };
